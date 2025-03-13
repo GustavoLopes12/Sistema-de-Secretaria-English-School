@@ -1,0 +1,10 @@
+Oque é:
+O projeto consiste em um pequeno sistema de gerenciamento de uma escola de inglês.
+Tecnologias Usadas:
+	- Draw.io foi o site utilizado para fazer a modelagem UML do banco de dados da escola;
+	- MySql foi o banco de dados escolhido para armazenamento dos dados;
+	- NodeJs foi a ferramenta escolhida para desenvolvimento do backend do projeto;
+	- RestAPI é o modelo de arquitetura utilizado no projeto visto que ele será utilizado na web;
+	- ExpressJS é o framework do nodejs utilizado para o desenvolvimento da restapi;
+	- Sucrase foi um framework utilizado para o padrao de imports e exports do projeto ser JavaScript e não CommonJS;
+	- Nodemon foi o framework utilizado para carregar o projeto Node, sem necessitar de ficar subindo o server a cada mudança de codigo.

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English School</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Sistema de Secretaria English School</h1>
+    <h3 id="bv"></h3>
+    <div class="buttons">
+        <button onclick="window.location='professores_page.html';">Cadastro e visualização de professores</button>
+        <button onclick="window.location='alunos_page.html';">Cadastro e visualização de alunos</button>
+        <button onclick="window.location='turmas_page.html';">Cadastro e visualização de Turmas</button>
+    </div>
+    <script>
+        const nome = localStorage.getItem("nome");
+        document.getElementById("bv").textContent = "Seja bem vindo(a) " + nome;
+    </script>
+</body>
+</html>

@@ -22,6 +22,7 @@ router.delete("/turmas/:numero", TurmaController.delete);
 //rotas de alunos
 router.get("/alunos", AlunoController.index);
 router.get("/alunos/:rm", AlunoController.show);
+router.get("/alunos/search/:nome", AlunoController.pegarPeloNome);//aqqq
 router.post("/alunos", AlunoController.create);
 router.put("/alunos/:rm", AlunoController.update);
 router.delete("/alunos/:rm", AlunoController.delete);

@@ -1,22 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English School</title>
+    <title>Secretaria - ManagerES</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Sistema de Secretaria English School</h1>
-    <h3 id="bv"></h3>
-    <div class="buttons">
-        <button onclick="window.location='professores_page.html';">Cadastro e visualização de professores</button>
-        <button onclick="window.location='alunos_page.html';">Cadastro e visualização de alunos</button>
-        <button onclick="window.location='turmas_page.html';">Cadastro e visualização de Turmas</button>
-    </div>
-    <script>
-        const nome = localStorage.getItem("nome");
-        document.getElementById("bv").textContent = "Seja bem vindo(a) " + nome;
-    </script>
+
+        <header>
+            <img src="./img/EnglishSchool.png" alt="Logo English School">
+            <h1>Secretaria - ManagerES</h1>
+        </header>
+        
+        <section class="painel-de-controle">
+            <!--div with informations about classroms-->
+            <div class="turmas">
+                <h2>Dados das Turmas</h2>
+                <table id="table_turmas">
+                    <thead>
+                        <tr>
+                            <th>Numero da Turma</th>
+                            <th>Nivel da Turma</th>
+                            <th>Professor da Turma</th>
+                            <th>Quantidade de Alunos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <!--div where student is post in the system-->
+            <div class="aluno-cadastro" id="cadastro-aluno">
+                <h2>Cadastrar Aluno na English School</h2>
+                <form id="form-cadastro-aluno">
+                    <label for="nome-aluno">Nome do Aluno:</label>
+                    <input type="text" id="nome-aluno" name="nome" placeholder="Nome completo do aluno" required>
+
+                    <label for="celular">Celular:</label>
+                    <input type="text" id="celular" name="celular" placeholder="Celular" maxlength="11" required>
+
+                    <label for="telefone-aluno">Telefone Fixo:</label>
+                    <input type="text" id="telefone-aluno" name="telefone" placeholder="Telefone fixo" maxlength="11">
+
+                    <label for="turma-aluno">Selecione a Turma:</label>
+                    <select id="turma-aluno" name="turma">
+                        <option value="">Nenhuma (Cadastrar sem turma)</option>
+                       
+                    </select>
+
+                    <button type="submit">Cadastrar Aluno</button>
+                </form>
+            </div>
+            <!--div where the classrom student´s is change-->
+            <div class="aluno-cadastro-turma" id="adicionar-aluno">
+                <h2>Cadastrar Aluno em Turma</h2>
+                <form>
+                    <label for="aluno">Selecione o Aluno:</label>
+                    <select id="aluno" name="aluno" required>
+                       
+                    </select>
+
+                    <label for="turma">Selecione a Turma:</label>
+                    <select id="turma" name="turma" required>
+                        
+                    </select>
+
+                    <button type="submit">Adicionar à Turma</button>
+                </form>
+            </div> 
+            <!--search students-->
+            <div class="procurar-aluno">
+                <h2>Busque um Aluno</h2>
+                <form id="form-busca" role="search" aria-label="Buscar aluno">
+                    <label for="nome-search">Digite o nome do aluno</label>
+                    <input type="text" id="nome-search"  required>
+                    <button type="submit">🔍 Buscar</button>
+                </form>
+                <table id="table_alunos">
+                    <thead>
+                        <tr>
+                            <th>Rm</th>
+                            <th>Nome</th>
+                            <th>Turma</th>
+                            <th>Celular</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <script src="./js/script.js"></script>
 </body>
 </html>

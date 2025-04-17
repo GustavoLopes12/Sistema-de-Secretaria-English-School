@@ -3,13 +3,18 @@ import {consulta} from "../database/conexao.js";
 class AlunoRepository{
     findAll(){
         const sql = "SELECT * FROM alunos";
-        const msgError = "Não foi possível localizar os alunos";//POR ERRO NO SQL OU INTERNO
+        const msgError = "Não foi possível localizar os alunos";
         return consulta(sql, msgError);
     }
     findById(rm){
         const sql = "SELECT * FROM alunos WHERE rm = ?";
-        const msgError = "Não foi possível achar o aluno requerido";//POR ERRO NO SQL OU INTERNO
+        const msgError = "Não foi possível achar o aluno requerido";
         return consulta(sql, rm, msgError);
+    }
+    findByName(nome){
+        const sql = "SELECT * FROM alunos WHERE nome = ?";
+        const msgError = "Não foi possível achar o aluno requerido";
+        return consulta(sql, nome, msgError);
     }
     create(aluno){
         const sql = "INSERT INTO alunos SET ?";

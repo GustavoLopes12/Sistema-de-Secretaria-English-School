@@ -58,6 +58,8 @@ function carregarTurmasForm() {
 // Função para carregar alunos no formulário de adicionar aluno
 function carregarAlunosForm() {
     const select = document.getElementById("aluno");
+    // Limpa as opções existentes
+    select.innerHTML = "";
     fetch("http://localhost:3000/alunos", {
         method:"GET",
         headers:{
@@ -111,28 +113,38 @@ document.getElementById("form-cadastro-aluno").addEventListener("submit", functi
         document.getElementById("celular").value = "";//limpando
         document.getElementById("telefone-aluno").value = "";//limpando
         document.getElementById("turma-aluno").value = "";//limpando
-        carregarTurmasForm();//att*/
+        carregarAlunosForm();
     })
     .catch((error) => {alert(error.message);});
 });
 
 //BUSCAR ALUNO PELO NOME
 document.getElementById("form-busca").addEventListener("submit", function(event){
+    
+    event.preventDefault();
 
-    const nome = document.getElementById("nome-search").value;
+    const nome = document.querySelector("#nome-search").value;
     const tbody = document.querySelector("#table_alunos tbody");
     tbody.innerHTML = "";//limpando ela antes p garantir q estara vazia
 
-    fetch(`http://localhost:3000/alunos/search/${nome}`, {
+    fetch(`http://localhost:3000/alunos/search/${/*encodeURIComponent(*/nome/*)*/}`, {
         method:"GET",
         headers:{
             "Content-Type": "application/json"
         }
     }).then(
-        response => response.json()
+        response => {
+                if (response.status === 404) {
+                    return response.json().then(error => {
+                        throw new Error(error.error); // Interrompe o fluxo
+                    });
+                }else{
+                    return response.json(); // Caso contrário, retorna os dados
+                }
+            }
     ).then(
         data => {
-                data.forEach(aluno => {
+               data.forEach(aluno => {
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
                         <td>${aluno.rm}</td>
@@ -145,15 +157,11 @@ document.getElementById("form-busca").addEventListener("submit", function(event)
                 });
         }
     ).catch(
-        error => alert(error.message)
+        error => alert("Erro:"+ error.message)
     );
 });
-
 //quando a page carregar
 document.addEventListener("DOMContentLoaded", function() {
-    // Agora que o DOM está carregado, podemos carregar as turmas
-    const nome = localStorage.getItem("nome");
-    alert(nome);
     buscarTodasTurmas();
     carregarAlunosForm();
     carregarTurmasForm();

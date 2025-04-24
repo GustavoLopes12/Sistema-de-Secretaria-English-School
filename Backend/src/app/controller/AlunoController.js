@@ -23,20 +23,21 @@ class AlunoController{
             }
             res.status(200).json(result);
         }catch(error){
-            res.status(500).json({"error": error});
+            res.status(500).json({"error": error.message});
         }
     }
     async pegarPeloNome(req, res){
         try{
             const nome = req.params.nome;
             const result = await AlunoRepository.findByName(nome);
+            console.log(result);
             //VERIFICANDO SE RESULT NÃO VEM VAZIO OQUE INDICA QUE NAO FOI POSSIVEL ACHAR O aluno
             if(result.length === 0){
                 return res.status(404).json({"error":"Aluno não existe"});
             }
             res.status(200).json(result);
         }catch(error){
-            res.status(500).json({"error": error.message});
+            res.status(500).json({"error": error});
         }
     }
     async create(req, res){

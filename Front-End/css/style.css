@@ -36,7 +36,7 @@ header h1 {
     width:90%;
     height:auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);/*fr=fracao de espaco (fractional unit), entao cada coluna 2 fica com 1 fracao de espaco / 50% e 50%*/
+    grid-template-columns: repeat(2, 1fr);/*fractional unit (fração de espaço)*/
     gap: 20px;
     margin-bottom: 40px;
 }
@@ -44,11 +44,12 @@ header h1 {
 .turmas,
 .aluno-cadastro,
 .procurar-aluno,
-.aluno-cadastro-turma {
+.aluno-cadastro-turma,
+.update-celular-telefone{
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);/*offset-x offset-y esfumaçado*/
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);/*offset-x offset-y smoky(esfumaçado)*/
 }
 
 h2 {
@@ -117,6 +118,3 @@ form button {
 form button:hover {
     background-color: #0056b3;
 }
-
-
-/*search students*/

@@ -3,12 +3,12 @@ import {consulta} from "../database/conexao.js";
 class TurmaRepository{
     findAll(){
         const sql = "select t.*, p.nome as nome_professor from turmas t join professores p on p.registro = t.registro_professor;";
-        const msgError = "Não foi possível localizar as turmas";//POR ERRO NO SQL OU INTERNO
+        const msgError = "Não foi possível localizar as turmas";
         return consulta(sql, msgError);
     }
     findById(numero){
         const sql = "SELECT * FROM turmas WHERE numero = ?";
-        const msgError = "Não foi possível achar a turma requerida";//POR ERRO NO SQL OU INTERNO
+        const msgError = "Não foi possível achar a turma requerida";
         return consulta(sql, numero, msgError);
     }
     create(turma){

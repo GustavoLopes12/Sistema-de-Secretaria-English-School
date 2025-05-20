@@ -12,9 +12,14 @@ class AlunoRepository{
         return consulta(sql, rm, msgError);
     }
     findByName(nome){
-        const sql = "SELECT * FROM alunos WHERE nome = ?";
+        const sql = "SELECT * FROM alunos WHERE nome LIKE ?";
         const msgError = "Não foi possível achar o aluno requerido";
-        return consulta(sql, nome, msgError);
+        return consulta(sql, [nome + '%'], msgError);
+    }
+    findByCPF(cpf){
+        const sql = "SELECT * FROM alunos WHERE cpf = ?";
+        const msgError = "Não foi possível achar o aluno requerido";
+        return consulta(sql, cpf, msgError);
     }
     create(aluno){
         const sql = "INSERT INTO alunos SET ?";

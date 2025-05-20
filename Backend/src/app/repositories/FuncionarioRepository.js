@@ -8,7 +8,7 @@ class FuncionarioRepository{
     }
     findByEmailAndSenha(email, senha){
         const sql = "SELECT * FROM funcionarios WHERE email = ? AND senha = ?";
-        const msgError = "Não foi possível fazer login com o funcionario";//POR ERRO NO SQL OU INTERNO
+        const msgError = "Não foi possível fazer login com o funcionario";
         return consulta(sql, [email, senha], msgError);
     }
 }

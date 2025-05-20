@@ -1,5 +1,11 @@
 Oque é:
-O projeto consiste em um pequeno sistema de gerenciamento de uma escola de inglês.
+O ManagerES é um sistema para secretaria de uma escola fictícia de inglês poder executar suas tarefas 
+dentro do sistema escolar de forma mais fácil e rápida. O projeto na parte front-end foi desenvolvido em html, css 
+e javascript, no back-end desenvolvi uma rest-api em NodeJs com framework ExpressJs utilizando o banco de dados MySql.
+Esse projeto foi realizado com objetivo de aplicar oque aprendi durante os estudos sobre NodeJs, tinha o objetivo de 
+realizar algo útil e desse objetivo nasceu este projeto, ele futuramente pode evoluir com mais funcionalidades para 
+secretaria tanto quando a integração com outros sistemas para professores, alunos e diretoria.
+
 Tecnologias Usadas:
 	- Draw.io foi o site utilizado para fazer a modelagem UML do banco de dados da escola;
 	- MySql foi o banco de dados escolhido para armazenamento dos dados;

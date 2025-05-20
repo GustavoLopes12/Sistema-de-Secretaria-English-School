@@ -17,9 +17,9 @@ export const consulta = (sql, parametros = "", msgError) => {
             if(error){
                 return reject(msgError + "/ERRO_COMPLETO:/" + error);
             }else{
-                //fazer o parse dos resultados
+                //parse of the results to json
                 const row = JSON.parse(JSON.stringify(result));
-                return resolve(row);//me retorna um array com json puro sem wrapper(tipo um embrulho do mysql com algumas funcionalidades)
+                return resolve(row);//return array with pure json(me retorna um array com json puro sem wrapper(tipo um embrulho do mysql com algumas funcionalidades))
             }
         });
     });

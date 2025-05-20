@@ -9,15 +9,16 @@ class TurmaController{
             res.status(500).json({"error" : error})
         }
     }
+
     async show(req, res){
         try{
             const numero = parseInt(req.params.numero);
-            //verificando se é numero msm o id
+            //checking the number
             if(isNaN(numero)){
                 return res.status(400).json({"error":"Numero de turma nao é valido"});//bad request
             }
             const result = await TurmaRepository.findById(numero);
-            //VERIFICANDO SE RESULT NÃO VEM VAZIO OQUE INDICA QUE NAO FOI POSSIVEL ACHAR a turma
+            //if not found
             if(result.length === 0){
                 return res.status(404).json({"error":"Não foi possível achar a turma"});
             }
@@ -26,6 +27,7 @@ class TurmaController{
             res.status(500).json({"error": error});
         }
     }
+
     async create(req, res){
         try{
             const turma = req.body;
@@ -35,11 +37,11 @@ class TurmaController{
             res.status(500).json({"erro":error});
         }
     }
+
     async update(req, res){
         try{
             const numero = req.params.numero;
             const turma = req.body;
-            //verificando se é numero msm o id
             if(isNaN(numero)){
                 return res.status(400).json({"error":"Numero da turma nao é valido"});//bad request
             }
@@ -49,10 +51,10 @@ class TurmaController{
             res.status(500).json({"erro":error});
         }
     }
+
     async delete(req, res){
         try{
             const numero = req.params.numero;
-            //verificando se é numero msm o id
             if(isNaN(numero)){
                 return res.status(400).json({"error":"Numero da turma nao é valido"});//bad request
             }

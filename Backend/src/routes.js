@@ -6,27 +6,27 @@ import FuncionarioController from "./app/controller/FuncionarioController.js"
 
 const router = Router();
 
-//rotas de professores
+//professors routes
 router.get("/professores", ProfessorController.index);
 router.get("/professores/:registro", ProfessorController.show);
 router.get("/professores/porNome/:nome", ProfessorController.pegarPeloNome);
 router.post("/professores", ProfessorController.create);
 router.put("/professores/:registro", ProfessorController.update);
 router.delete("/professores/:registro", ProfessorController.delete);
-//rotas de turmas
+//classrooms routes
 router.get("/turmas", TurmaController.index);
 router.get("/turmas/:numero", TurmaController.show);
 router.post("/turmas", TurmaController.create);
 router.put("/turmas/:numero", TurmaController.update);
 router.delete("/turmas/:numero", TurmaController.delete);
-//rotas de alunos
+//students routes
 router.get("/alunos", AlunoController.index);
 router.get("/alunos/:rm", AlunoController.show);
-router.get("/alunos/search/:nome", AlunoController.pegarPeloNome);//aqqq
+router.get("/alunos/search/:nome", AlunoController.pegarPeloNome);
 router.post("/alunos", AlunoController.create);
 router.put("/alunos/:rm", AlunoController.update);
 router.delete("/alunos/:rm", AlunoController.delete);
-//criar funcionario e login dele
+//employees routes
 router.post("/funcionarios", FuncionarioController.criar);
 router.post("/funcionarios/login", FuncionarioController.login);
 
